@@ -9,7 +9,8 @@
 ---
 ### 데이터 가공
 
-1. 전체 데이터(2,163,574건) 중 폐업한 음식점들의 데이터 drop 후 필요한 column의 데이터만 추출 
+1. 전체 데이터(2,163,574건) 중 폐업한 음식점들의 데이터 drop -> 현재 영업중인 음식점 데이터 추출(697,989건)
+2. 전체 Column 중 필요한 Column의 데이터만 추출
 
 ```
 import pandas as pd
@@ -47,7 +48,7 @@ df.to_csv('data.csv')
 　
 
  
-2. ‘소재지전체주소’, ‘도로명전체주소’ column을 parsing해서 음식점의 ‘시/도’ 정보를 저장하는 ‘주소‘ column을 생성
+3. ‘소재지전체주소’, ‘도로명전체주소’ column을 parsing해서 음식점의 ‘시/도’ 정보를 저장하는 ‘주소‘ column을 생성
 ```
 import pandas as pd
 df=pd.read_csv('data_ver1.csv')
@@ -71,7 +72,7 @@ df.to_csv('data.csv')
 　
 
  
-3. ‘주소‘ column을 활용해 서울특별시의 음식점을 구 단위로 분류하기 위한 ‘세부주소’ column 생성 후 data_seoul 파일로 저장
+4. ‘주소‘ column을 활용해 서울특별시의 음식점을 구 단위로 분류하기 위한 ‘세부주소’ column 생성 후 data_seoul 파일로 저장
 ```
 import pandas as pd
 df=pd.read_csv('data_ver2.csv')
@@ -97,7 +98,7 @@ df.to_csv('data_seoul.csv')
 　
 
  
-3. ‘주소‘ column을 활용해 경기도의 음식점을 시 단위로 분류하기 위한 ‘세부주소’ column 생성 후 data_gyeonggi 파일로 저장
+5. ‘주소‘ column을 활용해 경기도의 음식점을 시 단위로 분류하기 위한 ‘세부주소’ column 생성 후 data_gyeonggi 파일로 저장
 ```
 import pandas as pd
 df=pd.read_csv('data_ver2.csv')
